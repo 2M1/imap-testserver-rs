@@ -1,14 +1,14 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub mod server;
+
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::server::ImapTestServer;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+   fn basic_run_test() {
+        let server = ImapTestServer::new(1234);
+
+        assert_eq!(server.port, 1234);
+    } 
 }
